@@ -1,0 +1,49 @@
+<!DOCTYPE html> <html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title>
+    </head>
+    <style> .container{
+    display: flex; justify-content: center; align-items: center;
+    background: #A0C3D2; height: 100vh;
+    }
+    .customer-support {
+    border: 1px solid rgb(255, 255, 255); padding: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    width: 50%;
+    background-color: white;
+    }
+    .customer-support h2 {
+    font-size: 24px;
+    margin-bottom: 10px; }
+    .customer-support ul { list-style: none; padding: 0;
+    margin: 0;
+    }
+    .customer-support li {
+    margin-bottom: 10px; }
+    .customer-support a { color: #007bff; text-decoration: none;
+    }
+    .customer-support a:hover {
+    text-decoration: underline; }
+    </style>
+
+
+       <body bgcolor="#A0C3D2">
+    <div class="container">
+    <div class="customer-support">
+    <h2>Customer Support</h2>
+    <p>If you have any questions or require support, please don't hesitate to contact
+    us.</p> <ul>
+    <li>Phone: 1-800-123-4567</li>
+    <li>Email: <a href="mailto:support@example.com">support@example.com</a></li>
+    </ul> </div></div>
+    </body>
+    <script>function sendEmail() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value; const message = document.getElementById("message").value;
+    const subject = "Message from " + name;
+    const body = "Name: " + name + "%0D%0AEmail: " + email + "%0D%0AMessage: " + message;
+    const mailtoLink = "mailto:owner@example.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = mailtoLink; }
+    </script> </html>

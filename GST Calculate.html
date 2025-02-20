@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html> <body>
+<head>
+<title>GST Calculate</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"
+type="text/javascript"></script>
+<style>
+h1 {
+text-align: center;
+}
+body {
+padding: 0;
+margin: 0;
+background-color: #A0C3D2; height: 100vh;
+display: flex;
+justify-content: center; flex-direction: column; align-items: center;
+
+}
+.container {
+width: 40%;
+background: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+border-radius: 10px;
+border: 2px solid black;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px - 3px 5px;
+gap: 10px;
+padding: 20px; justify-content: center;
+}
+a.Gst{
+text-decoration: none; border: 1px solid black;
+
+
+   padding-left: 20px; padding-top: 5px; padding-bottom: 5px; padding-right: 20px;
+color: black;
+font-size: 20px;
+margin: 20px; background-color: #f4eeeee8;
+}
+a{
+text-decoration: none; border: 1px solid black;
+
+
+   padding-left: 20px; padding-top: 5px; padding-bottom: 5px; padding-right: 20px;
+color: black;
+font-size: 20px;
+margin: 20px; background-color: #f4eeeee8;
+}
+a:hover{background-color: silver;}
+form { display: flex;
+flex-direction: column; justify-content: center; align-items: center; width: 70%;
+gap: 5px; }
+label {
+display: block; margin-right: 40px; font-size: 20px;
+}
+input {
+width: 100%;
+padding: 10px 15px; margin: 0;
+outline: none; font-family: 'Montserrat'
+} input[type="number"] {
+padding: 10px 15px;
+outline: none;
+font-family: 'Montserrat' }
+button {
+padding: 10px; background-color: #4CAF50; color: white;
+border: none;
+width: fit-content; border-radius: 4px;
+cursor: pointer;
+
+
+   margin-top: 10px;
+font-size: 20px; }
+#result { margin-top: 20px; font-size: 20px; font-weight: bold;
+}
+#feedback{
+position: absolute;
+right: 5px;
+top: 5px;
+color: black;
+font-size: bold; background-color: transparent;
+} #commodity{
+width: 100%;
+padding: 10px; }
+.Gst{
+text-decoration: none; border: 1px solid black; padding-left: 20px; padding-top: 5px; padding-bottom: 5px; padding-right: 20px; color: black;
+font-size: 20px;
+margin: 20px; background-color: #fafafae8; }
+</style> </head>
+<h1>GST Calculation</h1>
+<a id="feedback" href="contact.html">Contact</a>
+
+<div class="container">
+<form method="post" action="">
+<label for="price">Product Price:</label>
+<input type="number" id="price" name="price" required> <label>Select commodity </label>
+<select name="commodity" id="commodity">
+29
+
+   <option value="0.05">food</option> <option value="0.12">books</option> <option value="0.18">clothing</option> <option value="0.28">Other</option>
+</select>
+<button type="button" onclick="calculateGST()">Calculate GST</button>
+<div id="output"></div>
+<a class="Gst" href="https://www.gst.gov.in/"><h4>Click here to file your GST</h4></a>
+<a href="income.html">Click here to calculate income tax</a>
+
+</form> </div>
+<script>
+function calculateGST() {
+const gstRate = document.getElementById("commodity").value; const price = document.getElementById("price").value;
+const gstAmount = Number(price) * Number(gstRate);
+totalAmount = Number(price) + gstAmount;
+const formattedGSTAmount = new Intl.NumberFormat('en-IN', { style: 'currency',
+currency: 'INR'
+}).format(gstAmount);
+const formattedTotalAmount = new Intl.NumberFormat('en-IN', { style: 'currency',
+currency: 'INR'
+}).format(totalAmount);
+document.getElementById("output").innerHTML = `GST Amount: ${formattedGSTAmount} <br> Total Amount: ${formattedTotalAmount}`; }
+</script>
+<body> </html>
